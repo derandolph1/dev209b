@@ -1,0 +1,48 @@
+.auth-container {
+  max-width: 350px;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.form-group {
+  text-align: left;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.error-message {
+  color: #dc3545;
+  background: #f8d7da;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  font-size: 0.85rem;
+}
+
+.toggle-text {
+  margin-top: 20px;
+  font-size: 0.9rem;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  padding: 0;
+  margin-left: 5px;
+  font-size: inherit;
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.link-btn:hover {
+  color: #0056b3;
+  background: none; /* Override global button hover */
+}
