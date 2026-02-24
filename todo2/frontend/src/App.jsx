@@ -5,7 +5,7 @@ import Dashboard from './pages/Dashboard';
 import { getCookie, setCookie, deleteCookie } from './utils/cookies';
 import './index.css';
 
-const API_URL = 'http://localhost:3000/api';
+const API_URL = 'http://localhost:3000';
 
 function App() {
   const [token, setToken] = useState(getCookie('authToken'));
@@ -27,11 +27,11 @@ function App() {
         {/* Public Routes */}
         <Route 
           path="/login" 
-          element={!token ? <AuthForm mode="login" onAuth={login} /> : <Navigate to="/" />} 
+          element={!token ? <AuthForm mode="login" onAuth={login} API_URL={API_URL} /> : <Navigate to="/" />} 
         />
         <Route 
           path="/register" 
-          element={!token ? <AuthForm mode="register" onAuth={login} /> : <Navigate to="/" />} 
+          element={!token ? <AuthForm mode="register" onAuth={login} API_URL={API_URL} /> : <Navigate to="/" />} 
         />
 
         {/* Protected Route */}
