@@ -1,6 +1,7 @@
 const express = require('express');
 const crypto = require('crypto');
 const cors = require('cors');
+// const { use } = require('react');
 
 const app = express();
 
@@ -125,6 +126,7 @@ app.post('/todos', authenticateUser, (req, res) => {
 app.get('/todos', authenticateUser, (req, res) => {
   const token = extractToken(req.headers.authorization);
   const user = findUserByToken(token);
+  console.log (token, user);
   res.json(todos[user.username]);
 });
 

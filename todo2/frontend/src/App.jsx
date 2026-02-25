@@ -37,7 +37,7 @@ function App() {
         {/* Protected Route */}
         <Route 
           path="/" 
-          element={token ? <Dashboard token={token} onLogout={logout} /> : <Navigate to="/login" />} 
+          element={token ? <Dashboard token={token} onLogout={logout} API_URL={API_URL}  /> : <Navigate to="/login" />} 
         />
 
         {/* Catch-all redirect */}
@@ -49,70 +49,3 @@ function App() {
 }
 
 export default App;
-
-// import React, { useState, useEffect } from 'react';
-// import AuthForm from './components/AuthForm';
-// import TodoList from './components/TodoList';
-// import TodoForm from './components/TodoForm';
-// import { getCookie, setCookie, deleteCookie } from './utils/cookies';
-
-// const API_URL = 'http://localhost:3000';
-
-// function App() {
-//   const [token, setToken] = useState(getCookie('authToken'));
-//   const [todos, setTodos] = useState([]);
-//   const [editingTodo, setEditingTodo] = useState(null);
-
-//   // Fetch todos whenever the token changes
-//   useEffect(() => {
-//     if (token) {
-//       console.log("Token is presented. Try to get todos");
-//       fetchTodos();
-//     }
-//   }, [token]);
-
-//   const fetchTodos = async () => {
-//     const res = await fetch(`${API_URL}/todos`, {
-//       headers: { 'Authorization': `Bearer ${token}` }
-//     });
-//     const data = await res.json();
-//     setTodos(data);
-//   };
-
-//   const handleLogout = () => {
-//     deleteCookie('authToken');
-//     setToken(null);
-//     setTodos([]);
-//   };
-
-//   if (!token) {
-//     return <AuthForm onAuth={(t) => { setCookie('authToken', t); setToken(t); }} API_URL={API_URL} />;
-//   }
-
-//   return (
-//     <div className="app-container">
-//       <header>
-//         <h1>My Tasks</h1>
-//         <button onClick={handleLogout}>Logout</button>
-//       </header>
-
-//       <TodoForm 
-//         fetchTodos={fetchTodos} 
-//         editingTodo={editingTodo} 
-//         clearEdit={() => setEditingTodo(null)}
-//         token={token}
-//         API_URL={API_URL}
-//       />
-
-//       <TodoList 
-//         todos={todos} 
-//         fetchTodos={fetchTodos} 
-//         setEditingTodo={setEditingTodo}
-//         token={token}
-//         API_URL={API_URL}
-//       />
-//     </div>
-//   );
-// }
-
-// export default App;

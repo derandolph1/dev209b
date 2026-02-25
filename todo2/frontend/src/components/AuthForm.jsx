@@ -23,7 +23,7 @@ const AuthForm = ({ onAuth, API_URL }) => {
       });
 
       const data = await res.json();
-
+console.log(data);
       if (res.ok) {
         if (isLogin) {
           onAuth(data.token); // Save token to cookie/state in App.js
